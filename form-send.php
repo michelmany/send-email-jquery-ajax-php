@@ -13,10 +13,10 @@ $mail->CharSet = 'UTF-8'; // codificação UTF-8, a codificação mais usada rec
 $mail->SMTPDebug = 1; //mostra a mensagem de debug
  
 $mail->isSMTP();  
-$mail->Host = 'cpanel0011.hospedagemdesites.ws';
+$mail->Host = 'cpanel0011.hospedagemdesites.ws'; //Locaweb settings
 $mail->SMTPAuth = true; 
-$mail->Username = 'form@masterbondbrasil.com.br'; //Informe o e-mai o completo
-$mail->Password = 'nit1049';
+$mail->Username = ''; //Informe o e-mai o completo
+$mail->Password = '';
 $mail->SMTPSecure = 'ssl';
 $mail->Port = 465; 
 
@@ -24,8 +24,8 @@ $mail->Port = 465;
 $nomeremetente     = $Post['nomeremetente'];
 $emailremetente    = trim($Post['emailremetente']);
 $mensagem          = $Post['mensagem'];
-$assunto           = 'Mensagem enviada pelo site Master Bond';
-$emaildestinatario = 'design@nitdesign.com.br';/* E-mail que deseja receber a mensagem*/
+$assunto           = 'Mensagem enviada pelo site';
+$emaildestinatario = '';/* E-mail que deseja receber a mensagem*/
 
 /* Montando a mensagem a ser enviada no corpo do e-mail. */
 $mensagemHTML = '<h3>Você recebeu uma mensagem através do site!</h3>';
@@ -35,8 +35,8 @@ $mensagemHTML .= '<p>Mensagem: <b>' . $mensagem . '</b></p>';
 
 $mail->setFrom('form@nitdesign.com.br', 'Mensagem enviada pelo site Master Bond');
 $mail->addAddress($emaildestinatario); //Destinatário
-/*$mail->addReplyTo('sender@deduzir.me', 'Deduzir.me');*/
-/*$mail->addCC('design@nitdesign.com.br');*/
+$mail->addReplyTo('', '');
+$mail->addCC('');
 $mail->isHTML(true);  // Set email format to HTML
 
 $mail->Subject  = $assunto . ' - ' . date("d/m/Y") . ' - ' . date("H:i");
